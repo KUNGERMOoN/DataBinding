@@ -1,0 +1,16 @@
+{
+    "name": "MiniBinder.Examples",
+    "rootNamespace": "MiniBinder.Examples",
+    "references": [
+        "GUID:7b557d869f5429040b7d0df422df6069"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
