@@ -5,11 +5,12 @@ namespace MiniBinder.Examples
 {
     public class VariableUISynchronizationExample : MonoBehaviour
     {
-        public static BindableProperty<float> MyFloat = new(0);
+        public readonly BindableProperty<float> MyFloat = new(0);
 
         void Awake()
         {
-            var slider = FindObjectOfType<UIDocument>().rootVisualElement.Q<Slider>("mySlider");
+            var slider = FindObjectOfType<UIDocument>()
+                .rootVisualElement.Q<Slider>("mySlider");
 
             slider.Bind(MyFloat);
         }

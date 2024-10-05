@@ -47,7 +47,7 @@ namespace MiniBinder
             Callbacks.Add(new(action));
         }
 
-        public void Bind(Bindable<T> target, Processor<T> processor = null, Processor<T> targetProcessor = null)
+        public void Bind(Bindable<T> target, Processor<T> inputProcessor = null, Processor<T> outputProcessor = null)
         {
             if (target == this || target == null) return;
 
@@ -56,17 +56,17 @@ namespace MiniBinder
                 .Any(bc => bc.Bindable == target))
                 return;
 
-            processor ??= x => x;
-            targetProcessor ??= x => x;
+            inputProcessor ??= x => x;
+            outputProcessor ??= x => x;
 
-            Callbacks.Add(new BindableCallback(this, target, targetProcessor));
-            target.Callbacks.Add(new BindableCallback(target, this, processor));
+            Callbacks.Add(new BindableCallback(this, target, outputProcessor));
+            target.Callbacks.Add(new BindableCallback(target, this, inputProcessor));
 
             byte newVersion = version != target.version
                 ? target.version
                 : (byte)(version + 1);
 
-            Propagate(processor(target.Value), newVersion);
+            Propagate(inputProcessor(target.Value), newVersion);
         }
 
         public void Unbind(Action<T> action)

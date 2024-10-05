@@ -25,8 +25,8 @@ namespace MiniBinder
         public static void Bind<T>(this BaseField<T> element, Action<T> action)
             => UIBindable<T>.Get(element).Bind(action);
 
-        public static void Bind<T>(this BaseField<T> element, Bindable<T> target, Processor<T> elementProcessor = null, Processor<T> targetProcessor = null)
-            => UIBindable<T>.Get(element).Bind(target, elementProcessor, targetProcessor);
+        public static void Bind<T>(this BaseField<T> element, Bindable<T> target, Processor<T> inputProcessor = null, Processor<T> outputProcessor = null)
+            => UIBindable<T>.Get(element).Bind(target, inputProcessor, outputProcessor);
 
         public static void Unbind<T>(this BaseField<T> element, Action<T> action)
             => UIBindable<T>.Get(element).Unbind(action);
