@@ -1,0 +1,8 @@
+#toggles > Toggle > Label {
+    min-width: 70px;
+}
+
+VisualElement {
+    font-size: 20px;
+    -unity-font-style: bold;
+}
